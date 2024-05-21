@@ -55,4 +55,4 @@ A simple banking system API's build using aspnet6
             - POST /api/admin/users/{userId}/roles: Assign roles and permissions
 
 # ERD
-![alt text](image.png)
+![alt text](ERD.png)
