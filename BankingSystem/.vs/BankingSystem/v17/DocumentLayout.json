@@ -1,0 +1,126 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\VC\\Desktop\\miniproject\\BankingSystem\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{27A9A527-8223-4D20-88DC-6230E1AE128F}|BankingSystem\\BankingSystem.csproj|c:\\users\\vc\\desktop\\miniproject\\bankingsystem\\bankingsystem\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{27A9A527-8223-4D20-88DC-6230E1AE128F}|BankingSystem\\BankingSystem.csproj|solutionrelative:bankingsystem\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{27A9A527-8223-4D20-88DC-6230E1AE128F}|BankingSystem\\BankingSystem.csproj|c:\\users\\vc\\desktop\\miniproject\\bankingsystem\\bankingsystem\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{27A9A527-8223-4D20-88DC-6230E1AE128F}|BankingSystem\\BankingSystem.csproj|solutionrelative:bankingsystem\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{27A9A527-8223-4D20-88DC-6230E1AE128F}|BankingSystem\\BankingSystem.csproj|c:\\users\\vc\\desktop\\miniproject\\bankingsystem\\bankingsystem\\models\\branch.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{27A9A527-8223-4D20-88DC-6230E1AE128F}|BankingSystem\\BankingSystem.csproj|solutionrelative:bankingsystem\\models\\branch.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{27A9A527-8223-4D20-88DC-6230E1AE128F}|BankingSystem\\BankingSystem.csproj|c:\\users\\vc\\desktop\\miniproject\\bankingsystem\\bankingsystem\\models\\employee.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{27A9A527-8223-4D20-88DC-6230E1AE128F}|BankingSystem\\BankingSystem.csproj|solutionrelative:bankingsystem\\models\\employee.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{27A9A527-8223-4D20-88DC-6230E1AE128F}|BankingSystem\\BankingSystem.csproj|c:\\users\\vc\\desktop\\miniproject\\bankingsystem\\bankingsystem\\models\\loan.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{27A9A527-8223-4D20-88DC-6230E1AE128F}|BankingSystem\\BankingSystem.csproj|solutionrelative:bankingsystem\\models\\loan.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{27A9A527-8223-4D20-88DC-6230E1AE128F}|BankingSystem\\BankingSystem.csproj|c:\\users\\vc\\desktop\\miniproject\\bankingsystem\\bankingsystem\\models\\account.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{27A9A527-8223-4D20-88DC-6230E1AE128F}|BankingSystem\\BankingSystem.csproj|solutionrelative:bankingsystem\\models\\account.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 1,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedHeight": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\VC\\Desktop\\miniproject\\BankingSystem\\BankingSystem\\Program.cs",
+              "RelativeDocumentMoniker": "BankingSystem\\Program.cs",
+              "ToolTip": "C:\\Users\\VC\\Desktop\\miniproject\\BankingSystem\\BankingSystem\\Program.cs",
+              "RelativeToolTip": "BankingSystem\\Program.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABwAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-22T11:50:45.007Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Branch.cs",
+              "DocumentMoniker": "C:\\Users\\VC\\Desktop\\miniproject\\BankingSystem\\BankingSystem\\Models\\Branch.cs",
+              "RelativeDocumentMoniker": "BankingSystem\\Models\\Branch.cs",
+              "ToolTip": "C:\\Users\\VC\\Desktop\\miniproject\\BankingSystem\\BankingSystem\\Models\\Branch.cs",
+              "RelativeToolTip": "BankingSystem\\Models\\Branch.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABUAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-22T11:38:42.988Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Employee.cs",
+              "DocumentMoniker": "C:\\Users\\VC\\Desktop\\miniproject\\BankingSystem\\BankingSystem\\Models\\Employee.cs",
+              "RelativeDocumentMoniker": "BankingSystem\\Models\\Employee.cs",
+              "ToolTip": "C:\\Users\\VC\\Desktop\\miniproject\\BankingSystem\\BankingSystem\\Models\\Employee.cs",
+              "RelativeToolTip": "BankingSystem\\Models\\Employee.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABoAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-22T11:38:12.545Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Loan.cs",
+              "DocumentMoniker": "C:\\Users\\VC\\Desktop\\miniproject\\BankingSystem\\BankingSystem\\Models\\Loan.cs",
+              "RelativeDocumentMoniker": "BankingSystem\\Models\\Loan.cs",
+              "ToolTip": "C:\\Users\\VC\\Desktop\\miniproject\\BankingSystem\\BankingSystem\\Models\\Loan.cs",
+              "RelativeToolTip": "BankingSystem\\Models\\Loan.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABwAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-22T11:38:03.446Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Account.cs",
+              "DocumentMoniker": "C:\\Users\\VC\\Desktop\\miniproject\\BankingSystem\\BankingSystem\\Models\\Account.cs",
+              "RelativeDocumentMoniker": "BankingSystem\\Models\\Account.cs",
+              "ToolTip": "C:\\Users\\VC\\Desktop\\miniproject\\BankingSystem\\BankingSystem\\Models\\Account.cs",
+              "RelativeToolTip": "BankingSystem\\Models\\Account.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-22T11:37:38.117Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "User.cs",
+              "DocumentMoniker": "C:\\Users\\VC\\Desktop\\miniproject\\BankingSystem\\BankingSystem\\Models\\User.cs",
+              "RelativeDocumentMoniker": "BankingSystem\\Models\\User.cs",
+              "ToolTip": "C:\\Users\\VC\\Desktop\\miniproject\\BankingSystem\\BankingSystem\\Models\\User.cs",
+              "RelativeToolTip": "BankingSystem\\Models\\User.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABgAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-22T11:36:33.476Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
