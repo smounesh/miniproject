@@ -4,6 +4,7 @@ using BankingSystem.Contexts;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BankingSystem.Migrations
 {
     [DbContext(typeof(BankingSystemContext))]
-    partial class BankingSystemContextModelSnapshot : ModelSnapshot
+    [Migration("20240528175843_removed-user-userdetail-relationship")]
+    partial class removeduseruserdetailrelationship
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -157,8 +159,8 @@ namespace BankingSystem.Migrations
                             Email = "admin@bankingsystem.com",
                             EmployeeName = "Admin",
                             JobTitle = "Administrator",
-                            PasswordHash = new byte[] { 94, 0, 240, 61, 131, 118, 42, 252, 215, 138, 45, 53, 164, 153, 184, 235, 158, 147, 17, 20, 203, 173, 187, 117, 3, 161, 104, 213, 47, 6, 152, 102, 56, 97, 242, 94, 146, 157, 51, 192, 19, 242, 111, 10, 164, 45, 144, 59, 152, 34, 160, 244, 25, 95, 229, 129, 201, 108, 208, 196, 95, 54, 224, 31 },
-                            PasswordSalt = new byte[] { 159, 242, 240, 60, 29, 241, 40, 147, 174, 220, 165, 123, 86, 239, 212, 66, 251, 69, 76, 102, 203, 218, 121, 212, 91, 134, 95, 172, 131, 169, 49, 255, 181, 85, 138, 140, 189, 229, 94, 205, 2, 136, 88, 104, 119, 114, 248, 205, 206, 149, 104, 139, 228, 79, 255, 35, 247, 183, 28, 255, 159, 84, 150, 78, 145, 2, 32, 83, 168, 138, 249, 135, 228, 98, 76, 35, 136, 4, 85, 228, 40, 233, 138, 116, 122, 226, 251, 187, 60, 227, 120, 143, 167, 57, 231, 113, 23, 16, 98, 98, 234, 177, 134, 73, 121, 118, 226, 136, 242, 254, 10, 23, 0, 127, 162, 33, 112, 138, 30, 129, 133, 7, 253, 103, 49, 184, 37, 209 },
+                            PasswordHash = new byte[] { 22, 231, 37, 4, 66, 183, 153, 201, 74, 33, 226, 67, 165, 159, 78, 166, 39, 130, 92, 107, 211, 8, 154, 4, 47, 113, 221, 242, 248, 44, 18, 198, 242, 88, 47, 241, 48, 135, 217, 222, 252, 230, 233, 215, 224, 37, 112, 155, 49, 183, 239, 56, 67, 228, 248, 92, 170, 45, 181, 70, 129, 241, 145, 98 },
+                            PasswordSalt = new byte[] { 145, 102, 8, 40, 121, 174, 231, 238, 32, 214, 247, 94, 149, 234, 139, 231, 146, 164, 139, 230, 76, 73, 142, 38, 36, 110, 16, 245, 93, 234, 6, 123, 75, 201, 163, 18, 109, 157, 107, 190, 211, 109, 101, 221, 85, 1, 194, 201, 86, 212, 146, 57, 0, 27, 250, 230, 66, 136, 245, 214, 228, 81, 14, 37, 115, 20, 179, 198, 59, 23, 112, 135, 74, 58, 156, 21, 14, 112, 55, 146, 46, 109, 176, 177, 58, 142, 146, 204, 140, 20, 33, 121, 122, 75, 189, 105, 228, 96, 10, 163, 155, 63, 193, 24, 87, 60, 145, 183, 61, 212, 154, 141, 177, 2, 126, 71, 14, 110, 249, 21, 157, 26, 91, 136, 226, 240, 125, 252 },
                             PhoneNumber = "1234567890",
                             Role = "Admin",
                             Status = "Active"
@@ -219,19 +221,19 @@ namespace BankingSystem.Migrations
                         .HasColumnType("decimal(18,2)");
 
                     b.Property<int?>("FromAccountID")
+                        .IsRequired()
                         .HasColumnType("int");
 
                     b.Property<DateTime>("Timestamp")
                         .HasColumnType("datetime2");
 
                     b.Property<int?>("ToAccountID")
+                        .IsRequired()
                         .HasColumnType("int");
 
-                    b.Property<int>("TransactionType")
-                        .HasColumnType("int");
-
-                    b.Property<int>("UserID")
-                        .HasColumnType("int");
+                    b.Property<string>("Type")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("TransactionID");
 
@@ -240,8 +242,6 @@ namespace BankingSystem.Migrations
                     b.HasIndex("FromAccountID");
 
                     b.HasIndex("ToAccountID");
-
-                    b.HasIndex("UserID");
 
                     b.ToTable("Transactions");
                 });
@@ -372,16 +372,12 @@ namespace BankingSystem.Migrations
                     b.HasOne("BankingSystem.Models.Account", "FromAccount")
                         .WithMany()
                         .HasForeignKey("FromAccountID")
-                        .OnDelete(DeleteBehavior.Restrict);
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
 
                     b.HasOne("BankingSystem.Models.Account", "ToAccount")
                         .WithMany()
                         .HasForeignKey("ToAccountID")
-                        .OnDelete(DeleteBehavior.Restrict);
-
-                    b.HasOne("BankingSystem.Models.UserDetail", "UserDetail")
-                        .WithMany("Transactions")
-                        .HasForeignKey("UserID")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
@@ -390,8 +386,6 @@ namespace BankingSystem.Migrations
                     b.Navigation("FromAccount");
 
                     b.Navigation("ToAccount");
-
-                    b.Navigation("UserDetail");
                 });
 
             modelBuilder.Entity("BankingSystem.Models.User", b =>
@@ -417,8 +411,6 @@ namespace BankingSystem.Migrations
                     b.Navigation("Accounts");
 
                     b.Navigation("Loans");
-
-                    b.Navigation("Transactions");
                 });
 #pragma warning restore 612, 618
         }

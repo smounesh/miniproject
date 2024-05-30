@@ -4,6 +4,7 @@ using BankingSystem.Contexts;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BankingSystem.Migrations
 {
     [DbContext(typeof(BankingSystemContext))]
-    partial class BankingSystemContextModelSnapshot : ModelSnapshot
+    [Migration("20240528160404_intial-create")]
+    partial class intialcreate
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -157,8 +159,8 @@ namespace BankingSystem.Migrations
                             Email = "admin@bankingsystem.com",
                             EmployeeName = "Admin",
                             JobTitle = "Administrator",
-                            PasswordHash = new byte[] { 94, 0, 240, 61, 131, 118, 42, 252, 215, 138, 45, 53, 164, 153, 184, 235, 158, 147, 17, 20, 203, 173, 187, 117, 3, 161, 104, 213, 47, 6, 152, 102, 56, 97, 242, 94, 146, 157, 51, 192, 19, 242, 111, 10, 164, 45, 144, 59, 152, 34, 160, 244, 25, 95, 229, 129, 201, 108, 208, 196, 95, 54, 224, 31 },
-                            PasswordSalt = new byte[] { 159, 242, 240, 60, 29, 241, 40, 147, 174, 220, 165, 123, 86, 239, 212, 66, 251, 69, 76, 102, 203, 218, 121, 212, 91, 134, 95, 172, 131, 169, 49, 255, 181, 85, 138, 140, 189, 229, 94, 205, 2, 136, 88, 104, 119, 114, 248, 205, 206, 149, 104, 139, 228, 79, 255, 35, 247, 183, 28, 255, 159, 84, 150, 78, 145, 2, 32, 83, 168, 138, 249, 135, 228, 98, 76, 35, 136, 4, 85, 228, 40, 233, 138, 116, 122, 226, 251, 187, 60, 227, 120, 143, 167, 57, 231, 113, 23, 16, 98, 98, 234, 177, 134, 73, 121, 118, 226, 136, 242, 254, 10, 23, 0, 127, 162, 33, 112, 138, 30, 129, 133, 7, 253, 103, 49, 184, 37, 209 },
+                            PasswordHash = new byte[] { 173, 55, 213, 157, 63, 6, 110, 196, 106, 34, 15, 183, 15, 53, 12, 185, 165, 18, 19, 230, 187, 86, 248, 82, 105, 214, 153, 181, 186, 112, 214, 80, 12, 206, 21, 74, 99, 50, 162, 165, 224, 52, 76, 233, 109, 57, 151, 155, 42, 54, 14, 146, 90, 118, 216, 145, 219, 136, 188, 200, 31, 233, 117, 253 },
+                            PasswordSalt = new byte[] { 65, 192, 109, 175, 25, 143, 67, 192, 48, 216, 122, 255, 81, 134, 79, 39, 10, 92, 9, 181, 225, 50, 153, 68, 73, 93, 232, 105, 151, 109, 80, 230, 182, 87, 25, 156, 166, 104, 194, 27, 101, 126, 247, 114, 45, 22, 183, 101, 249, 204, 15, 242, 37, 9, 93, 100, 126, 201, 92, 224, 154, 21, 171, 95, 134, 58, 11, 1, 61, 78, 3, 101, 57, 222, 198, 78, 108, 186, 166, 66, 169, 254, 153, 162, 124, 88, 114, 28, 47, 237, 218, 2, 220, 86, 80, 61, 107, 233, 76, 63, 16, 251, 37, 225, 172, 26, 181, 182, 142, 34, 35, 206, 70, 65, 125, 192, 46, 83, 206, 165, 187, 0, 131, 100, 221, 134, 176, 231 },
                             PhoneNumber = "1234567890",
                             Role = "Admin",
                             Status = "Active"
@@ -219,19 +221,19 @@ namespace BankingSystem.Migrations
                         .HasColumnType("decimal(18,2)");
 
                     b.Property<int?>("FromAccountID")
+                        .IsRequired()
                         .HasColumnType("int");
 
                     b.Property<DateTime>("Timestamp")
                         .HasColumnType("datetime2");
 
                     b.Property<int?>("ToAccountID")
+                        .IsRequired()
                         .HasColumnType("int");
 
-                    b.Property<int>("TransactionType")
-                        .HasColumnType("int");
-
-                    b.Property<int>("UserID")
-                        .HasColumnType("int");
+                    b.Property<string>("Type")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("TransactionID");
 
@@ -240,8 +242,6 @@ namespace BankingSystem.Migrations
                     b.HasIndex("FromAccountID");
 
                     b.HasIndex("ToAccountID");
-
-                    b.HasIndex("UserID");
 
                     b.ToTable("Transactions");
                 });
@@ -267,7 +267,8 @@ namespace BankingSystem.Migrations
 
                     b.HasKey("UserID");
 
-                    b.HasIndex("UserDetailID");
+                    b.HasIndex("UserDetailID")
+                        .IsUnique();
 
                     b.ToTable("Users");
                 });
@@ -372,16 +373,12 @@ namespace BankingSystem.Migrations
                     b.HasOne("BankingSystem.Models.Account", "FromAccount")
                         .WithMany()
                         .HasForeignKey("FromAccountID")
-                        .OnDelete(DeleteBehavior.Restrict);
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
 
                     b.HasOne("BankingSystem.Models.Account", "ToAccount")
                         .WithMany()
                         .HasForeignKey("ToAccountID")
-                        .OnDelete(DeleteBehavior.Restrict);
-
-                    b.HasOne("BankingSystem.Models.UserDetail", "UserDetail")
-                        .WithMany("Transactions")
-                        .HasForeignKey("UserID")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
@@ -390,15 +387,13 @@ namespace BankingSystem.Migrations
                     b.Navigation("FromAccount");
 
                     b.Navigation("ToAccount");
-
-                    b.Navigation("UserDetail");
                 });
 
             modelBuilder.Entity("BankingSystem.Models.User", b =>
                 {
                     b.HasOne("BankingSystem.Models.UserDetail", "UserDetail")
-                        .WithMany()
-                        .HasForeignKey("UserDetailID")
+                        .WithOne("User")
+                        .HasForeignKey("BankingSystem.Models.User", "UserDetailID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -418,7 +413,8 @@ namespace BankingSystem.Migrations
 
                     b.Navigation("Loans");
 
-                    b.Navigation("Transactions");
+                    b.Navigation("User")
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }

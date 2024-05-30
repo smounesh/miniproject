@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BankingSystem.Models
 {
@@ -6,21 +7,17 @@ namespace BankingSystem.Models
     {
         [Key]
         public int UserID { get; set; }
-        [Required]
-        public string Username { get; set; }
+
         [Required]
         public byte[] PasswordHash { get; set; }
+
         [Required]
         public byte[] PasswordSalt { get; set; }
-        [Required]
-        public string Email { get; set; }
-        [Required]
-        public string Role { get; set; }
-        [Required]
-        public string AccountStatus { get; set; }
 
-        public ICollection<Account> Accounts { get; set; }
-        public ICollection<Loan> Loans { get; set; }
-        public Employee Employee { get; set; }
+        [ForeignKey("UserDetail")]
+        [Required]
+        public int UserDetailID { get; set; }
+
+        public UserDetail? UserDetail { get; set; }
     }
 }

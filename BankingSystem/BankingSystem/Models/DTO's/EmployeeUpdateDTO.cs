@@ -1,13 +1,9 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using BankingSystem.Enums;
 
 namespace BankingSystem.Models.DTO_s
 {
-    public class EmployeeDTO
+    public class EmployeeUpdateDTO
     {
-        [Range(1, int.MaxValue, ErrorMessage = "EmployeeID must be a positive number")]
-        public int EmployeeID { get; set; }
-
         [Required]
         [StringLength(100, ErrorMessage = "EmployeeName length can't be more than 100.")]
         public string EmployeeName { get; set; }
@@ -21,9 +17,6 @@ namespace BankingSystem.Models.DTO_s
         public string PhoneNumber { get; set; }
 
         [Required]
-        public Branch Branch { get; set; }
-
-        [Required]
         [StringLength(100, ErrorMessage = "Department length can't be more than 100.")]
         public string Department { get; set; }
 
@@ -32,11 +25,7 @@ namespace BankingSystem.Models.DTO_s
         public string JobTitle { get; set; }
 
         [Required]
-        [EnumDataType(typeof(EmployeeRoleEnum), ErrorMessage = "Invalid Role")]
-        public EmployeeRoleEnum Role { get; set; }
-
-        [Required]
-        [EnumDataType(typeof(EmployeeStatusEnum), ErrorMessage = "Invalid Status")]
-        public EmployeeStatusEnum Status { get; set; }
+        [Range(1, int.MaxValue, ErrorMessage = "BranchID must be a positive number")]
+        public int BranchID { get; set; }
     }
 }
